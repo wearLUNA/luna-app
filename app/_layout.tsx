@@ -1,39 +1,34 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
-import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
-import * as SplashScreen from 'expo-splash-screen';
-import { StatusBar } from 'expo-status-bar';
 import { useEffect } from 'react';
-import 'react-native-reanimated';
+import { Platform } from 'react-native';
+import * as NavigationBar from 'expo-navigation-bar';
+import { StatusBar } from 'expo-status-bar';
+import { Colors } from '@/constants/theme'
 
-import { useColorScheme } from '@/hooks/useColorScheme';
-
-// Prevent the splash screen from auto-hiding before asset loading is complete.
-SplashScreen.preventAutoHideAsync();
-
-export default function RootLayout() {
-  const colorScheme = useColorScheme();
-  const [loaded] = useFonts({
-    SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
-  });
-
+export default function Layout() {
   useEffect(() => {
-    if (loaded) {
-      SplashScreen.hideAsync();
+    if (Platform.OS === 'android') {
+      // Set the Android navigation bar background and button style
+      NavigationBar.setBackgroundColorAsync(Colors.background); // dark blue
+      // NavigationBar.setButtonStyleAsync('light'); // light icons
     }
-  }, [loaded]);
-
-  if (!loaded) {
-    return null;
-  }
+  }, []);
 
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="+not-found" />
-      </Stack>
-      <StatusBar style="auto" />
-    </ThemeProvider>
+    <>
+      {/* Configure the status bar */}
+      <StatusBar style="light" backgroundColor={Colors.background} />
+
+      {/* Configure the stack navigator with a dark header */}
+      <Stack
+        screenOptions={{
+          // headerStyle: { backgroundColor: Colors.background },
+          // headerTintColor: '#fff', // white text/icons in header
+          // headerTitle: 'Connect',
+          // Optionally, you can hide the header if you want a full-screen view:
+          headerShown: false,
+        }}
+      />
+    </>
   );
 }
