@@ -1,8 +1,8 @@
 export const Colors = {
-  primary: '#4CAF50',
+  primary: 'white',
   secondary: '#ff0066',
-  background: '#000015',
-  text: '#333333',
+  background: 'black',
+  text: 'black',
 };
 
 export const Spacing = {
@@ -18,14 +18,13 @@ export const FontSizes = {
 };
 
 export const Button = {
-  // Default styling for all buttons
   background: Colors.primary,
   text: Colors.text,
   borderRadius: 4,
   paddingVertical: Spacing.medium,
   paddingHorizontal: Spacing.large,
   fontSize: FontSizes.medium,
-  // Sizes variant for button styling
+
   sizes: {
     small: {
       paddingVertical: Spacing.small,

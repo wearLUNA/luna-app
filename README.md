@@ -1,50 +1,70 @@
-# Welcome to your Expo app 👋
+# Luna App
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Luna App is the accompanying app developed for the LUNA wearable device on Expp. The app detects nearby LUNA devices with active BLE servers open and connects the smartphone to a chosen LUNA device. 
 
-## Get started
 
-1. Install dependencies
+## 🚀 Key Features
+
+* **BLE Connection**: Allows the running smartphone to connect to a LUNA device and send files from the smartphone to the device via BLE
+* **WiFi Sharing**: Detects the ID of the network the smartphone is currently connected to, and allows the user to provide the password to LUNA so that it can connect
+* **Cross-Platform**: Runs natively on iOS, Android, and web via responsive layouts.
+
+ 
+![Luna App Demo](lunaappsample-small.gif)
+
+## 📁 Repository Structure
+
+```
+/
+├── android/ # Android native project
+├── ios/ # iOS native project
+├── app/ # Main app entry points & screens
+├── assets/ # Images, fonts, demo GIF
+├── context/ # React Context providers
+├── hooks/ # Custom React hooks
+├── app.json # Expo project config
+├── package.json # Dependencies & scripts
+├── tsconfig.json # TypeScript config
+└── README.md # Project overview
+```
+
+## 💾 Installation
+
+Clone the repository:
+
+   ```bash
+   git clone https://github.com/yourusername/luna-app.git
+   cd luna-app
+   ```
+Install dependencies:
 
    ```bash
    npm install
    ```
 
-2. Start the app
+## 🔧 Running the App
 
-   ```bash
-    npx expo start
-   ```
-
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
+Start the development server and open in your preferred environment:
 
 ```bash
-npm run reset-project
+npx expo start
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+Choose one of the options in the Expo CLI:
 
-## Learn more
+* **Android emulator**
+* **iOS simulator**
+* **Web browser**
+* **Expo Go** (mobile sandbox)
 
-To learn more about developing your project with Expo, look at the following resources:
+## 📈 Workflow & Scripts
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+* `npm start` — Launch development server.
+* `npm run build:web` — Build optimized web bundle.
+* `npm run reset-project` — Reset current project to a fresh template.
+* `npm test` — Run unit tests.
 
-## Join the community
+---
 
-Join our community of developers creating universal apps.
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+*Last updated: July 21, 2025*
